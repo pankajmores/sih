@@ -5,3 +5,6 @@ Technological solution as per queuing models in OPDs/availability of beds/admiss
 Study of dispensation of various types of medicines/consumables and Inventory management modules at hospital level are key areas requiring support. 
 NIC has already developed some modules but their implementation in Delhi is yet to be started.
 A hospital based solution is ideal which can be integrated with city wide module may be required.
+
+
+ thev Routes   of the   patiesnt   adn  the  bed is  done
