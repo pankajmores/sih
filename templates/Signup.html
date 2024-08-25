@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <style>
+        body {
+            background-color: #2C3E50;
+            color: #ECF0F1;
+            font-family: Arial, sans-serif;
+        }
+
+        .signup-container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 30px;
+            background-color: #34495E;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .signup-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .signup-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .signup-container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #E74C3C;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .signup-container button:hover {
+            background-color: #C0392B;
+        }
+
+        .message {
+            color: #2ECC71; /* Success color */
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .error-message {
+            color: #E74C3C; /* Error color */
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <form th:action="@{/signup/v1}" method="post"  th:object ="${user_form}"  >
+            <div>
+                <input type="text" name="username" placeholder="Username" required autofocus>
+            </div>
+            <div>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <div>
+                <button type="submit">Sign Up</button>
+            </div>
+            <div th:if="${successMessage}" class="message">
+                <p th:text="${successMessage}"></p>
+            </div>
+            <div th:if="${errorMessage}" class="error-message">
+                <p th:text="${errorMessage}"></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
