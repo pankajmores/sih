@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('/images/EhospitalImage1.jpg'); /* Path to your background image */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            position: relative;
+        }
+
+        header {
+            background-color: rgba(0, 64, 128, 0.8); /* Semi-transparent background */
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1; /* Ensure header is on top of the background image */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .nav {
+            display: flex;
+            gap: 15px;
+            margin-left: 20px;
+        }
+
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav a:hover {
+            background-color: #0056b3;
+            border-radius: 5px;
+        }
+
+        .logout-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #dc3545;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #c82333;
+        }
+
+        .welcome-message {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 1; /* Ensure welcome message is on top of the background image */
+        }
+
+        .main-content {
+            display: flex;
+            flex: 1;
+            margin-top: 80px; /* Adjust based on header height */
+            padding: 0 20px; /* Added padding to prevent content from touching the sides */
+        }
+
+        .sidebar-left {
+            width: 250px;
+            background-color: rgba(0, 123, 255, 0.9); /* Semi-transparent background */
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            height: calc(100vh - 80px); /* Full height minus header */
+            position: sticky;
+            top: 0;
+            overflow-y: auto; /* Ensure sidebar content is scrollable if needed */
+        }
+
+        .sidebar-left .button {
+            display: block;
+            padding: 15px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #007bff; /* Button color */
+            border: none;
+            border-radius: 5px;
+            text-align: left;
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+            padding-left: 20px;
+        }
+
+        .sidebar-left .button:hover {
+            background-color: #0056b3;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            margin: 0 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar-right {
+            width: 250px;
+            background-color: rgba(0, 123, 255, 0.9); /* Semi-transparent background */
+            padding: 20px;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            height: calc(100vh - 80px); /* Full height minus header */
+            position: sticky;
+            top: 0;
+            overflow-y: auto; /* Ensure sidebar content is scrollable if needed */
+        }
+
+        .sidebar-right .button {
+            display: block;
+            padding: 15px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #007bff; /* Button color */
+            border: none;
+            border-radius: 5px;
+            text-align: left;
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+            padding-left: 20px;
+        }
+
+        .sidebar-right .button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: rgba(0, 64, 128, 0.8); /* Semi-transparent background */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/services">Services</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <h1>Hospital Management System</h1>
+        <a th:href="@{/logout}" class="logout-btn">Logout</a>
+    </header>
+
+    <!-- <div class="welcome-message">
+        Welcome, [Principal Name] <!-- Replace [Principal Name] with dynamic content as needed -->
+    </div> -->
+
+    <div class="main-content">
+        <div class="sidebar-left">
+            <a th:href="@{/opd-management}" class="button">OPD Management</a>
+            <a th:href="@{/drug-management}" class="button">Drug Management</a>
+        </div>
+
+        <div class="content">
+            <!-- Main content here -->
+            <p>Manage</p>
+        </div>
+
+        <div class="sidebar-right">
+            <a th:href="@{/beds}" class="button">Bed Management</a>
+            <a th:href="@{/Patient}" class="button">Patient Management</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>About: This is a comprehensive hospital management system to manage patient care, bed allocation, and drug inventory.</p>
+    </footer>
+</body>
+</html>
