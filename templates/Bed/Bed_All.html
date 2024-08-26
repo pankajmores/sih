@@ -14,28 +14,66 @@
             color: #333;
         }
 
+        /* Header Styling */
         header {
             background-color: #004080;
             color: #fff;
-            text-align: center;
-            padding: 20px 0;
+            padding: 20px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
             box-sizing: border-box;
         }
 
+        /* Navigation Options */
+        .nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav a:hover {
+            background-color: #0056b3;
+            border-radius: 5px;
+        }
+
+        /* Header Title */
         header h1 {
             margin: 0;
             font-size: 36px;
             font-weight: bold;
             letter-spacing: 1px;
+            flex-grow: 1;
+            text-align: center;
         }
 
+        /* Header Info */
         .header-info {
             font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-info .button {
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            margin-right: 15px;
+        }
+
+        .header-info .button:hover {
+            background-color: #0056b3;
         }
 
         .logout-button {
@@ -52,9 +90,10 @@
             background-color: #c82333;
         }
 
+        /* Main Section */
         main {
             padding: 20px;
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -82,10 +121,15 @@
             background-color: #0056b3;
         }
 
+        /* Beds Table Styling */
         .beds-table {
-            width: 100%;
+            width: 60%; /* Reduced the table width to 60% */
+            margin: 0 auto; /* Center the table */
             border-collapse: collapse;
             margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
         }
 
         .beds-table th, .beds-table td {
@@ -99,30 +143,28 @@
             color: #fff;
         }
 
+        .beds-table tr:nth-child(even) {
+            background-color: #f4f4f4;
+        }
+
         .beds-table tr:hover {
-            background-color: #f1f1f1;
-        }
-
-        .header-info .button {
-            background-color: #007bff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            color: #fff;
-            font-size: 16px;
-        }
-
-        .header-info .button:hover {
-            background-color: #0056b3;
+            background-color: #e6f7ff;
         }
     </style>
 </head>
 <body>
+    <!-- Navigation Options -->
     <header>
+        <div class="nav">
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
         <h1>Beds List</h1>
         <div class="header-info">
             <span>Welcome, <span th:text="${username}">User</span></span>
-            <a th:href="@{/beds}" class="button" style="margin-right: 15px;">Bed Management</a>
+            <a th:href="@{/beds}" class="button">Bed Management</a>
             <a th:href="@{/logout}" class="logout-button">Logout</a>
         </div>
     </header>
@@ -139,16 +181,12 @@
                 <tr>
                     <th>ID</th>
                     <th>Ward Number</th>
-                   
-                    <th>Assigned Patient ID</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="bed : ${beds}">
                     <td th:text="${bed.bed_id}"></td>
                     <td th:text="${bed.ward_no}"></td>
-                   
-                    
                 </tr>
             </tbody>
         </table>
