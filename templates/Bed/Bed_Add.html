@@ -8,14 +8,16 @@
         /* General Styles */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
             color: #333;
+            /* Background Image */
+            background: url('/images/bed add img.jpg') no-repeat center center fixed;
+            background-size: cover; /* Ensure the image covers the whole page */
         }
 
         header {
-            background-color: #004080;
+            background-color: rgba(0, 64, 128, 0.9); /* Semi-transparent background for the header */
             color: #fff;
             display: flex;
             justify-content: space-between;
@@ -89,37 +91,59 @@
             padding: 20px;
             max-width: 800px;
             margin: 0 auto;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background for the main section */
             border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            text-align: center;
+            color: #004080;
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-weight: bold;
+            color: #333;
         }
 
         .form-group input,
         .form-group select {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             border-radius: 5px;
             border: 1px solid #ddd;
+            font-size: 16px;
+            box-sizing: border-box;
         }
 
         .form-group button {
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 12px 20px;
+            font-size: 18px;
             color: #fff;
             background-color: #007bff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
         }
 
         .form-group button:hover {
@@ -130,12 +154,14 @@
             color: #28a745;
             font-size: 18px;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .error-message {
             color: #dc3545;
             font-size: 18px;
             margin-bottom: 20px;
+            text-align: center;
         }
     </style>
 </head>
@@ -165,24 +191,27 @@
             <p th:text="${errorMessage}"></p>
         </div>
 
-        <form th:action="@{/beds/add1}" th:object="${bed}" method="post">
-            <div class="form-group">
-                <label for="bed_id">Bed ID</label>
-                <input type="number" id="bed_id" th:field="*{bed_id}" placeholder="Enter Bed ID" required />
-            </div>
-            <div class="form-group">
-                <label for="ward_no">Ward Number</label>
-                <input type="number" id="ward_no" th:field="*{ward_no}" placeholder="Enter Ward Number" required />
-            </div>
-            <div class="form-group">
-                <label for="bed_number">Bed Number</label>
-                <input type="number" id="bed_number" th:field="*{bed_number}" placeholder="Enter Bed Number" required />
-            </div>
-            
-            <div class="form-group">
-                <button type="submit">Add Bed</button>
-            </div>
-        </form>
+        <div class="form-container">
+            <h2>Add Bed Information</h2>
+            <form th:action="@{/beds/add1}" th:object="${bed}" method="post">
+                <div class="form-group">
+                    <label for="bed_id">Bed ID</label>
+                    <input type="number" id="bed_id" th:field="*{bed_id}" placeholder="Enter Bed ID" required />
+                </div>
+                <div class="form-group">
+                    <label for="ward_no">Ward Number</label>
+                    <input type="number" id="ward_no" th:field="*{ward_no}" placeholder="Enter Ward Number" required />
+                </div>
+                <div class="form-group">
+                    <label for="bed_number">Bed Number</label>
+                    <input type="number" id="bed_number" th:field="*{bed_number}" placeholder="Enter Bed Number" required />
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit">Add Bed</button>
+                </div>
+            </form>
+        </div>
     </main>
 </body>
 </html>
