@@ -1,0 +1,11 @@
+package com.example.learn.login.Repositry;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.learn.login.Componect.Bed_Manage.Bed;
+
+@Repository
+public interface Bed_Repositry extends JpaRepository<Bed, Integer> {
+
+}
