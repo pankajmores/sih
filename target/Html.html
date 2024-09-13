@@ -4,16 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bed Management System</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="bed-management-container">
-        <h1>Hospital Bed Availability</h1>
-        <div id="bed-list">
-            <!-- Bed details will be inserted dynamically here -->
+    <div class="container">
+        <!-- Sidebar for Dashboard -->
+        <div id="dashboard">
+            <h2>Dashboard</h2>
+            <ul>
+                <li><a href="#">Casesheet</a></li>
+                <li><a href="#">Ward Request</a></li>
+                <li><a href="#">Transfer Room</a></li>
+                <li><a href="#">Cancel Admission</a></li>
+            </ul>
+        </div>
+
+        <!-- Main content -->
+        <div id="main-content">
+            <h1>Hospital Bed Availability</h1>
+            <div id="bed-list">
+                <!-- Bed details will be inserted dynamically here -->
+            </div>
         </div>
     </div>
-    <script src="scripts.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
