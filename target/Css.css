@@ -1,4 +1,3 @@
-/* Global styles */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f4f4f9;
@@ -7,50 +6,91 @@ body {
     color: #333;
 }
 
-/* Main container */
-#bed-management-container {
-    width: 80%;
-    margin: 40px auto;
-    text-align: center;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-/* Header */
-h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 30px;
-    color: #1a73e8;
-}
-
-/* Bed list container */
-#bed-list {
+.container {
     display: flex;
-    flex-direction: column;
-    gap: 30px;
 }
 
-/* Each floor section */
+#dashboard {
+    width: 20%;
+    background-color: #1a73e8;
+    padding: 20px;
+    color: white;
+    height: 100vh;
+}
+
+#dashboard h2 {
+    font-size: 1.5rem;
+}
+
+#dashboard ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#dashboard ul li {
+    margin: 20px 0;
+}
+
+#dashboard ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+#main-content {
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+}
+
+#main-content h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+#patient-form {
+    margin-bottom: 30px;
+    text-align: left;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#patient-form form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+#patient-form form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#patient-form button {
+    background-color: #1a73e8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#bed-list {
+    margin-top: 20px;
+}
+
 .floor-section {
     border: 1px solid #ddd;
     padding: 20px;
     border-radius: 8px;
     background-color: #f8f9fa;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-/* Floor heading */
-.floor-section h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
     margin-bottom: 20px;
-    color: #444;
 }
 
-/* Bed styling */
 .bed {
     display: inline-block;
     width: 60px;
@@ -65,47 +105,14 @@ h1 {
     transition: transform 0.3s ease;
 }
 
-.bed:hover {
-    transform: scale(1.1);
-}
-
 .available {
-    background-color: #4CAF50; /* Green for available beds */
+    background-color: #4CAF50;
 }
 
 .occupied {
-    background-color: #f44336; /* Red for occupied beds */
+    background-color: #f44336;
 }
 
-/* Bed animation */
-.bed {
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    #bed-management-container {
-        width: 95%;
-    }
-
-    .bed {
-        width: 50px;
-        height: 50px;
-        line-height: 50px;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
+.bed:hover {
+    transform: scale(1.1);
 }
