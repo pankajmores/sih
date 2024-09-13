@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#bed-management-container {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+
+#bed-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.floor-section {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.bed {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+.available {
+    background-color: green;
+}
+
+.occupied {
+    background-color: red;
+}
